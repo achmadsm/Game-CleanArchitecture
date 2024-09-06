@@ -63,10 +63,10 @@
 		2C2310502C81ADE600CC5C70 /* LocalDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalDataSource.swift; sourceTree = "<group>"; };
 		2C59B3842C82457C0065D7AD /* GameRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameRepository.swift; sourceTree = "<group>"; };
 		2C59B3882C82485F0065D7AD /* GameMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameMapper.swift; sourceTree = "<group>"; };
-		2C59B38A2C82528B0065D7AD /* HomeInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = HomeInteractor.swift; path = Game/Core/Utils/Mapper/HomeInteractor.swift; sourceTree = SOURCE_ROOT; };
-		2C59B38C2C8252FB0065D7AD /* FavoriteInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = FavoriteInteractor.swift; path = Game/Core/Utils/Mapper/FavoriteInteractor.swift; sourceTree = SOURCE_ROOT; };
-		2C59B38E2C8253930065D7AD /* DetailInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DetailInteractor.swift; path = Game/Core/Utils/Mapper/DetailInteractor.swift; sourceTree = SOURCE_ROOT; };
-		2C59B3902C8254300065D7AD /* SearchInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SearchInteractor.swift; path = Game/Core/Utils/Mapper/SearchInteractor.swift; sourceTree = SOURCE_ROOT; };
+		2C59B38A2C82528B0065D7AD /* HomeInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeInteractor.swift; sourceTree = "<group>"; };
+		2C59B38C2C8252FB0065D7AD /* FavoriteInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteInteractor.swift; sourceTree = "<group>"; };
+		2C59B38E2C8253930065D7AD /* DetailInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailInteractor.swift; sourceTree = "<group>"; };
+		2C59B3902C8254300065D7AD /* SearchInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchInteractor.swift; sourceTree = "<group>"; };
 		2C5ECEA52C800FF3000F5458 /* Game.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Game.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2C5ECEA82C800FF3000F5458 /* GameApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameApp.swift; sourceTree = "<group>"; };
 		2C5ECEAA2C800FF3000F5458 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
