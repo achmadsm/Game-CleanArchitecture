@@ -6,11 +6,17 @@
 //
 
 import CachedAsyncImage
+import Core
+import GamePackage
 import SwiftUI
 
 struct DetailView: View {
   @State private var showingAlert = false
-  @ObservedObject var presenter: DetailPresenter
+
+  @ObservedObject var presenter: GamePresenter<Interactor<Int, GameModel, GetGameRepository<GetGamesLocalDataSource, GetGameRemoteDataSource, GameTransformer>>,
+    Interactor<Int, GameModel, UpdateFavoriteGameRepository<GetFavoriteGamesLocalDataSource, GameTransformer>>>
+
+  var game: GameModel
 
   var body: some View {
     ZStack {
@@ -27,7 +33,7 @@ struct DetailView: View {
         }
       }
     }.onAppear {
-      self.presenter.getGame()
+      self.presenter.getGame(request: game.id)
     }.alert(isPresented: $showingAlert) {
       Alert(
         title: Text("Oops!"),
@@ -59,35 +65,39 @@ extension DetailView {
   var content: some View {
     return VStack(alignment: .leading) {
       HStack(alignment: .firstTextBaseline) {
-        Text(self.presenter.game.name).font(/*@START_MENU_TOKEN@*/ .title/*@END_MENU_TOKEN@*/).bold()
+        Text(self.presenter.item?.name ?? "")
+          .font(/*@START_MENU_TOKEN@*/ .title/*@END_MENU_TOKEN@*/).bold()
 
         Spacer()
-        if presenter.game.favorite {
+        if presenter.item?.favorite == true {
           CustomIcon(
             imageName: "heart.fill",
             title: "Favorited"
-          ).onTapGesture { self.presenter.updateFavoriteGame() }
+          )
+          .onTapGesture { self.presenter.updateFavoriteGame(request: game.id) }
         } else {
           CustomIcon(
             imageName: "heart",
             title: "Favorite"
-          ).onTapGesture { self.presenter.updateFavoriteGame() }
+          )
+          .onTapGesture { self.presenter.updateFavoriteGame(request: game.id) }
         }
       }
 
       Spacer()
-      Text(self.presenter.game.released)
+      Text(self.presenter.item?.released ?? "")
 
       Spacer()
-      Text(String(self.presenter.game.rating))
+      Text(String(self.presenter.item?.rating ?? 0.0))
 
       Spacer()
-      Text(self.presenter.game.descriptionRaw).font(.body)
+      Text(self.presenter.item?.descriptionRaw ?? "")
+        .font(.body)
     }
   }
 
   var imageGame: some View {
-    CachedAsyncImage(url: URL(string: self.presenter.game.image)) { image in
+    CachedAsyncImage(url: URL(string: self.presenter.item?.image ?? "")) { image in
       image.resizable()
     } placeholder: {
       ProgressView()

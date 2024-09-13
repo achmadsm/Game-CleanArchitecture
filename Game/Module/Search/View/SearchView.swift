@@ -5,10 +5,12 @@
 //  Created by + on 2/29/1446 AH.
 //
 
+import Core
+import GamePackage
 import SwiftUI
 
 struct SearchView: View {
-  @ObservedObject var presenter: SearchPresenter
+  @ObservedObject var presenter: SearchPresenter<GameModel, Interactor<String, [GameModel], SearchGamesRepository<GetGamesRemoteDataSource, GamesTransformer>>>
 
   var body: some View {
     VStack {
@@ -16,28 +18,28 @@ struct SearchView: View {
       ZStack {
         if presenter.isLoading {
           loadingIndicator
-        } else if presenter.title.isEmpty {
+        } else if presenter.keyword.isEmpty {
           emptyTitle
-        } else if presenter.games.isEmpty {
+        } else if presenter.list.isEmpty {
           emptyGames
         } else if presenter.isError {
           errorIndicator
         } else {
           ScrollView(.vertical, showsIndicators: false) {
             ForEach(
-              self.presenter.games,
+              self.presenter.list,
               id: \.id
             ) { game in
               ZStack {
-                self.presenter.linkBuilder(for: game) {
+                self.linkBuilder(for: game) {
                   GameRow(game: game)
                 }.buttonStyle(PlainButtonStyle())
               }.padding(8)
             }
           }
         }
-      }.searchable(text: $presenter.title)
-        .onSubmit(of: .search, presenter.searchGame)
+      }.searchable(text: $presenter.keyword)
+        .onSubmit(of: .search, presenter.search)
       Spacer()
     }.navigationBarTitle(
       Text("Search Games"),
@@ -73,5 +75,14 @@ extension SearchView {
       image: "assetGame",
       title: "Data not found"
     ).offset(y: 80)
+  }
+
+  func linkBuilder<Content: View>(
+    for game: GameModel,
+    @ViewBuilder content: () -> Content
+  ) -> some View {
+    NavigationLink(
+      destination: HomeRouter().makeGameView(for: game)
+    ) { content() }
   }
 }

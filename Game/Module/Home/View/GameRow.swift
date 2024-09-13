@@ -6,6 +6,7 @@
 //
 
 import CachedAsyncImage
+import GamePackage
 import SwiftUI
 
 struct GameRow: View {
@@ -41,19 +42,5 @@ extension GameRow {
       .foregroundStyle(Color.white)
       .padding([.leading, .bottom], 16)
       .frame(maxWidth: .infinity, alignment: .leading)
-  }
-}
-
-struct GameRow_Previews: PreviewProvider {
-  static var previews: some View {
-    let game = GameModel(
-      id: 1,
-      name: "Grand Theft Auto V",
-      released: "2013-09-17",
-      image: "https://media.rawg.io/media/games/b11/b115b2bc6a5957a917bc7601f4abdda2.jpg",
-      rating: 4.47,
-      descriptionRaw: "Lorem ipsum dolor sit amet"
-    )
-    return GameRow(game: game)
   }
 }

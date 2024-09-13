@@ -5,10 +5,15 @@
 //  Created by + on 2/29/1446 AH.
 //
 
+import Core
+import GamePackage
 import SwiftUI
 
 struct HomeView: View {
-  @ObservedObject var presenter: HomePresenter
+  @ObservedObject var presenter: GetListPresenter<Any, GameModel,
+    Interactor<Any, [GameModel],
+      GetGamesRepository<GetGamesLocalDataSource, GetGamesRemoteDataSource,
+        GamesTransformer>>>
 
   var body: some View {
     ZStack {
@@ -16,14 +21,14 @@ struct HomeView: View {
         loadingIndicator
       } else if presenter.isError {
         errorIndicator
-      } else if presenter.games.isEmpty {
+      } else if presenter.list.isEmpty {
         emptyGames
       } else {
         content
       }
     }.onAppear {
-      if self.presenter.games.isEmpty {
-        self.presenter.getGames()
+      if self.presenter.list.isEmpty {
+        self.presenter.getList(request: nil)
       }
     }.navigationBarTitle(
       Text("Games Apps"),
@@ -57,15 +62,24 @@ extension HomeView {
   var content: some View {
     ScrollView(.vertical, showsIndicators: false) {
       ForEach(
-        self.presenter.games,
+        self.presenter.list,
         id: \.id
       ) { game in
         ZStack {
-          self.presenter.linkBuilder(for: game) {
+          linkBuilder(for: game) {
             GameRow(game: game)
           }.buttonStyle(PlainButtonStyle())
         }.padding(8)
       }
     }
+  }
+
+  func linkBuilder<Content: View>(
+    for game: GameModel,
+    @ViewBuilder content: () -> Content
+  ) -> some View {
+    NavigationLink(
+      destination: HomeRouter().makeGameView(for: game)
+    ) { content() }
   }
 }

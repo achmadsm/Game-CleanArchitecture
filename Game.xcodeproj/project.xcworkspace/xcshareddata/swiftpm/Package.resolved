@@ -1,5 +1,5 @@
 {
-  "originHash" : "9b6fe70ca6c6d535d3d16c29ce13e64347345e4e629ddd2e78078ef93944ffe8",
+  "originHash" : "96d04d45b5a1602be05a27ea3733918b982dc82dd08c5698a654e9c2390f865b",
   "pins" : [
     {
       "identity" : "alamofire",
@@ -8,6 +8,24 @@
       "state" : {
         "revision" : "f455c2975872ccd2d9c81594c658af65716e9b9a",
         "version" : "5.9.1"
+      }
+    },
+    {
+      "identity" : "core",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/achmadsm/Core.git",
+      "state" : {
+        "branch" : "main",
+        "revision" : "9a0f7de339a5ecdc22bd76998aaa5de54ff34559"
+      }
+    },
+    {
+      "identity" : "game",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/achmadsm/Game",
+      "state" : {
+        "branch" : "main",
+        "revision" : "8f129552e87809d1381ecf887517fd7152206925"
       }
     },
     {
@@ -22,10 +40,10 @@
     {
       "identity" : "realm-swift",
       "kind" : "remoteSourceControl",
-      "location" : "https://github.com/realm/realm-swift",
+      "location" : "https://github.com/realm/realm-swift.git",
       "state" : {
         "branch" : "master",
-        "revision" : "a5733f5f96125e2f90e4f84d072b78323cc72ace"
+        "revision" : "c21605e847fc76f66c9d4c49ad0799c26d72edd4"
       }
     },
     {

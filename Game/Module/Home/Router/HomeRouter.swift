@@ -5,12 +5,31 @@
 //  Created by + on 2/29/1446 AH.
 //
 
+import Core
+import GamePackage
 import SwiftUI
 
 class HomeRouter {
   func makeGameView(for game: GameModel) -> some View {
-    let gameUseCase = Injection().provideDetail(game: game)
-    let presenter = DetailPresenter(gameUseCase: gameUseCase)
-    return DetailView(presenter: presenter)
+    let useCase: Interactor<
+      Int,
+      GameModel,
+      GetGameRepository<
+        GetGamesLocalDataSource,
+        GetGameRemoteDataSource,
+        GameTransformer>
+    > = Injection().provideGame()
+
+    let favoriteUseCase: Interactor<
+      Int,
+      GameModel,
+      UpdateFavoriteGameRepository<
+        GetFavoriteGamesLocalDataSource,
+        GameTransformer>
+    > = Injection().provideUpdateFavorite()
+
+    let presenter = GamePresenter(gameUseCase: useCase, favoriteUseCase: favoriteUseCase)
+
+    return DetailView(presenter: presenter, game: game)
   }
 }
