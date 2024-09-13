@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		2C026DFB2C94118400442DF1 /* GamePackage in Frameworks */ = {isa = PBXBuildFile; productRef = 2C026DFA2C94118400442DF1 /* GamePackage */; };
+		2C026DFD2C94156E00442DF1 /* codemagic.yaml in Resources */ = {isa = PBXBuildFile; fileRef = 2C026DFC2C94156E00442DF1 /* codemagic.yaml */; };
 		2C14F01D2C86A2750087DF6F /* HomeRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C14F01C2C86A2750087DF6F /* HomeRouter.swift */; };
 		2C14F0272C86A7AD0087DF6F /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C14F0262C86A7AD0087DF6F /* DetailView.swift */; };
 		2C14F0292C86A9240087DF6F /* GameRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C14F0282C86A9240087DF6F /* GameRow.swift */; };
@@ -29,6 +30,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2C026DFC2C94156E00442DF1 /* codemagic.yaml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = codemagic.yaml; sourceTree = "<group>"; };
 		2C14F01C2C86A2750087DF6F /* HomeRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeRouter.swift; sourceTree = "<group>"; };
 		2C14F0262C86A7AD0087DF6F /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
 		2C14F0282C86A9240087DF6F /* GameRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameRow.swift; sourceTree = "<group>"; };
@@ -139,6 +141,7 @@
 		2C5ECE9C2C800FF3000F5458 = {
 			isa = PBXGroup;
 			children = (
+				2C026DFC2C94156E00442DF1 /* codemagic.yaml */,
 				2C29FDD32C93F099005B7B0E /* .swiftlint.yml */,
 				2C5ECEA72C800FF3000F5458 /* Game */,
 				2C5ECEA62C800FF3000F5458 /* Products */,
@@ -325,6 +328,7 @@
 				2C29FDD42C93F099005B7B0E /* .swiftlint.yml in Resources */,
 				2C5ECEB02C800FF5000F5458 /* Preview Assets.xcassets in Resources */,
 				2C5ECEAD2C800FF5000F5458 /* Assets.xcassets in Resources */,
+				2C026DFD2C94156E00442DF1 /* codemagic.yaml in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
